@@ -37,11 +37,6 @@ public class Runner {
 		Method method = null;
 		try {
 			method = analyzer.getClass().getDeclaredMethod("equalsObjects", parameterTypes);
-		} catch (NoSuchMethodException | SecurityException e1) {
-			e1.printStackTrace();
-		}
-
-		if(method != null) {
 			for(int numberObject1 = 0; numberObject1 < objects.length - 1; numberObject1++) {
 				for(int numberObject2 = numberObject1 + 1; numberObject2 < objects.length; numberObject2++) {
 					method.setAccessible(true);
@@ -55,6 +50,8 @@ public class Runner {
 					System.out.println();
 				}
 			}
+		} catch (NoSuchMethodException | SecurityException e1) {
+			e1.printStackTrace();
 		}
 	}
 }
